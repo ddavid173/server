@@ -1,7 +1,5 @@
 # bun
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/F0K-j3?referralCode=coffeecup)
-
 To install dependencies:
 
 ```bash
@@ -13,5 +11,3 @@ To run:
 ```bash
 bun run index.ts
 ```
-
-This project was created using `bun init` in bun v1.0.0. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
