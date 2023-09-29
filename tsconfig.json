@@ -18,6 +18,11 @@
     "types": [
       "bun-types", // add Bun global
       "node"
-    ]
-  }
+    ],
+  },
+  "include": [
+    "./**/*.ts",
+    "./component/mango.ts",
+    "node_modules"
+  ],
 }
