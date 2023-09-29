@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/make-key', needEmail, (req, res) => {
+    console.log(process.env.ENV)
     makeKey(String(req.headers.email)).then((key) => {
       if (key === "Key already exists for this email") {
         res.status(400).json({error: key})
