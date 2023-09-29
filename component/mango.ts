@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import Crypto from "crypto";
 
-const uri = process.env.URI || process.env.MONGO_URL || "";
-const client = new MongoClient(uri)
+const uri = process.env.URI || process.env.MONGO_URL;
+const client = new MongoClient(String(uri))
 
 async function listDatabases(client: any) {
     const databasesList = await client.db().admin().listDatabases();
@@ -26,7 +26,7 @@ export async function makeKey(email: string): Promise<string> {
   try {
     let doc = await client.db(process.env.ENV).collection(`keys`).findOne({email: email});
     if (doc === null) {
-      key = Crypto.randomBytes(64).toString('base64').slice(0, 64);
+      key = Crypto.randomBytes(64).toString('hex').slice(0, 64);
       await client.db('Dev').collection(`keys`).insertOne({email: email, key: key});
     } else {
       key = "Key already exists for this email";
