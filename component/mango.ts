@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import Crypto from "crypto";
 
-const uri = process.env.URI || "";
+const uri = process.env.URI || process.env.MONGO_URL || "";
 const client = new MongoClient(uri)
 
 async function listDatabases(client: any) {
