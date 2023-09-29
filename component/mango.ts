@@ -27,7 +27,7 @@ export async function makeKey(email: string): Promise<string> {
     let doc = await client.db(process.env.ENV).collection(`keys`).findOne({email: email});
     if (doc === null) {
       key = Crypto.randomBytes(64).toString('hex').slice(0, 64);
-      await client.db('Dev').collection(`keys`).insertOne({email: email, key: key});
+      await client.db(process.env.ENV).collection(`keys`).insertOne({email: email, key: key});
     } else {
       key = "Key already exists for this email";
     }
