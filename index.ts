@@ -1,25 +1,15 @@
-import { makeKey } from './component/mango.ts';
+import { makeKey } from './component/mango';
 import { Request, Response, NextFunction } from 'express';
 import express from 'express';
 
 const app = express();
 const port = process.env.PORT || 3000
 
-const needEmail = (req: Request, res: Response, next: NextFunction) => {
-  if (!req.headers) {
-    res.status(501).json({error: 'No header'})
-  } else if (!req.headers.email) {
-    res.status(502).json({error: 'No email provided'})
-  } else if (req.headers.email.toString()) {
-    next()
-  }
-}
-
 app.get('/', (req, res) => {
-  res.status(200).send(`Welcome: go to ${process.env.URL}/make-key to get a key. /nplace your email in the header (email: <email>). One key per an email. If you loose your key contact me to get it reset.`)
+  res.status(200).sendFile(__dirname + '/pages/welcome.html')
 })
 
-app.get('/make-key', needEmail, (req, res) => {
+app.get('/make-key', (req, res) => {
     console.log(process.env.ENV)
     makeKey(String(req.headers.email)).then((key) => {
       if (key === "Key already exists for this email") {
@@ -31,9 +21,12 @@ app.get('/make-key', needEmail, (req, res) => {
     })
 })
 
+app.get('/style.css', (req, res) => {
+  res.status(200).sendFile(__dirname + '/pages/style.css')
+})
 
-app.get('/favicon.ico', (req, res, ) => {
-  res.status(400).json({error: 'No favicon avalible'})
+app.get('/favicon.ico', (req, res) => {
+  res.status(200).sendFile(__dirname + '/img/favicon.ico')
 })
 
 app.listen(`${port}`, () => {

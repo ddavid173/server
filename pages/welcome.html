@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome Page</title>
+        <link href="./style.css" rel="stylesheet" />
+        <style>
+        
+        </style>
+        <script>
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let interval = null;
+    
+            let decodeText = () => { 
+                let iteration = 0;
+                const target = document.querySelector("h1");
+                clearInterval(interval);
+                console.log(target.dataset.value)
+                
+                interval = setInterval(() => {
+                    target.innerText = target.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if(index < iteration) {
+                        return target.dataset.value[index];
+                        }
+                    
+                        return letters[Math.floor(Math.random() * 26)]
+                    })
+                    .join("");
+                    
+                    if(iteration >= target.dataset.value.length){ 
+                    clearInterval(interval);
+                    }
+                    
+                    iteration += 1 / 3;
+                }, 30);
+            };
+        </script>
+    </head>
+    <body>
+        <h1 data-value="Welcome!">Welcome!</h1>
+        <section>
+            <div class="screen">  
+                <div class="screen-image img1"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <a href="https://github.com/ddavid173/server" class="screen-title">See how this page was made!</a>
+                </div>
+            </div>
+            <div class="screen">  
+                <div class="screen-image img2"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <a href="https://www.delgadolandinvestmentsllc.com/" class="screen-title">See a live site</a>
+                </div>
+            </div>
+            <div class="screen">  
+                <div class="screen-image img3"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <a href="https://www.linkedin.com/in/david-delgado-834506195/" class="screen-title">See what I am up to now</a>
+                </div>
+            </div>
+            <!-- <div class="screen">  
+                <div class="screen-image img4"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <a href="https://github.com/ddavid173/server" class="screen-title">See how this page was made!</a>
+                </div>
+            </div> -->
+        </section>
+    </body>
+    <script>
+        document.querySelector("h1").onmouseover = decodeText
+        document.querySelector("h1").onload = decodeText()
+    </script>
+</html>
