@@ -2,9 +2,10 @@ import { makeKey, createSession } from './component/mango';
 import { Request, Response, NextFunction } from 'express';
 import express from 'express';
 const path = require('path');
-
 const app = express();
 const port = process.env.PORT || 3000
+
+app.set('trust proxy', true);
 app.use(express.static(path.join(__dirname, 'pages')));
 
 app.get('/', (req, res) => {
