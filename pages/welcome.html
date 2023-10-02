@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Welcome Page</title>
+        <title>Portfolio</title>
         <link href="./style.css" rel="stylesheet" />
         <script src="/scripts.js"></script>
     </head>
@@ -10,7 +10,7 @@
         <h1 data-value="Welcome!">Welcome!</h1>
         <section>
             <div class="screen">  
-                <div class="screen-image img1"></div> 
+                <div class="screen-image"></div> 
                 <div class="screen-overlay"></div>  
                 <div class="screen-content">
                     <a href="https://github.com/ddavid173/server" 
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="screen">  
-                <div class="screen-image img2"></div> 
+                <div class="screen-image"></div> 
                 <div class="screen-overlay"></div>  
                 <div class="screen-content">
                     <a href="https://www.delgadolandinvestmentsllc.com/" 
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="screen">  
-                <div class="screen-image img3"></div> 
+                <div class="screen-image"></div> 
                 <div class="screen-overlay"></div>  
                 <div class="screen-content">
                     <a href="https://www.linkedin.com/in/david-delgado-834506195/"
@@ -45,26 +45,58 @@
                     </a>
                 </div>
             </div>
+            <div class="screen">  
+                <div class="screen-image"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <a href="https://github.com/ddavid173/server" 
+                        class="screen-title" 
+                        target="_blank" 
+                        rel="noreferrer noopener">
+                        My Github
+                    </a>
+                </div>
+            </div>
+            <div class="screen">  
+                <div class="screen-image"></div> 
+                <div class="screen-overlay"></div>  
+                <div class="screen-content">
+                    <button
+                        onclick="openPopup()"
+                        class="screen-title remove-atributes" 
+                        target="_blank" 
+                        rel="noreferrer noopener">
+                        Reach out to me
+                    </button>
+                </div>
+            </div>
         </section>
     </body>
-    <script>
-        if (!getCookie("session_id")) {
-            fetch(
-                window.location.origin + "/create-session",
-                {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).then((response) => {
-                    return response.json()
-                }).then((data) => {
-                    setCookie("session_id", data.id)
-                }).catch((error) => {
-                    console.log(error)
-                })
-        }
-        document.querySelector("h1").onmouseover = decodeText
-        document.querySelector("h1").onload = decodeText()
-    </script>
+    <dialog class="screen popup">
+        <form method="dialog" class="closePopup">
+          <button type="submit" class="closeBtn" onclick="closePopup()">x</button>
+        </form>
+        <section class="popupContent">
+            <div class="popupContextBox">
+                <div class="popupContentTitle">Email:</div>
+                <div class="popupContentText">davidadelgado08@gmail.com</div>
+            </div>
+            <div class="popupContextBox">
+                <div class="popupContentTitle">Phone:</div>
+                <div class="popupContentText">(512) 753-9633</div>
+            </div>
+            <div class="popupContextBox popupContextBoxHover">
+                <div class="popupContentTitle">LinkedIn:</div>
+                <div class="popupContentText">
+                    <a href="https://www.linkedin.com/in/david-delgado-834506195/"
+                        class="screen-title"
+                        target="_blank"
+                        rel="noreferrer noopener">
+                        david-delgado-834506195
+                    </a>
+                </div>
+            </div>
+        </section>
+    </dialog>
+    <script src="/listeners.js"></script>
 </html>

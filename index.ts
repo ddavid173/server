@@ -33,7 +33,7 @@ app.get('/scripts.css', (req, res) => {
 })
 
 app.get('/favicon.ico', (req, res) => {
-  res.status(200).sendFile(__dirname + '/img/favicon.ico')
+  res.status(200).sendFile(__dirname + '/pages/favicon.ico')
 })
 
 app.get('/create-session', (req, res) => {
