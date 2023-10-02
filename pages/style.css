@@ -45,7 +45,6 @@ body {
     padding: 2.5vh 5vw;
     max-width: 1100px;
   }
-
   .screen {
     flex-grow: 1;
     flex-basis: 300px;
@@ -311,23 +310,35 @@ body {
     height: 100%;
   }
 
+  
+  
   .screen:hover {
-    box-shadow: 0px 0px 1rem white;
-  }
-
-  .remove-atributes {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(1rem, 2vw, 3rem);
-    color: white;
-    border-radius: clamp(0.4rem, 0.75vw, 1rem);
-    text-align: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    text-shadow: 0px 0px 0.5rem white;
-    text-decoration: underline;
-  }
+      box-shadow: 0px 0px 1rem white;
+    }
+    
+    .remove-atributes {
+        font-family: 'Space Mono', monospace;
+        font-size: clamp(1rem, 2vw, 3rem);
+        color: white;
+        border-radius: clamp(0.4rem, 0.75vw, 1rem);
+        text-align: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        text-shadow: 0px 0px 0.5rem white;
+        text-decoration: underline;
+    }
+    
+    @media screen and (orientation: portrait) {
+        .screen-title {
+            font-size: clamp(2rem, 3vw, 5rem);
+        }
+    
+        .remove-atributes {
+            font-size: clamp(2rem, 3vw, 5rem);
+        }
+    }
 
   .popup {
     position: relative;
