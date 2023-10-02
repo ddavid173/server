@@ -112,7 +112,112 @@ body {
     top: 0px;
   }
   
-  @keyframes pan-image {  
+  @keyframes pan-image1 { 
+    
+    0% { /* -- View 1 -- */
+        background-position: 80% 10%;
+        background-size: 300%;
+    }
+      
+    20% {
+        background-position: 72% 14%;
+        background-size: 300%;
+    }
+
+    20.0001% { /* -- View 2 -- */
+      background-position: 36% 42%;
+      background-size: 200%;
+    }
+    
+    40% {
+      background-position: 30% 35%;
+      background-size: 200%;
+    }
+    
+    40.0001% { /* -- View 3 -- */
+      background-position: 60% 85%;
+      background-size: 500%;
+    }
+    
+    60% {
+      background-position: 49% 81%;
+      background-size: 500%;
+    }
+    
+    60.0001% { /* -- View 4 -- */
+      background-position: 80% 42%;
+      background-size: 300%;
+    }
+    
+    80% {
+      background-position: 84% 33%;
+      background-size: 300%;
+    }
+    
+    80% { /* -- View 5 -- */
+      background-position: 0% 0%;
+      background-size: 300%;
+    }
+    
+    100% {
+      background-position: 15% 4%;
+      background-size: 300%;
+    }
+  }
+
+  @keyframes pan-image2 {
+    0% { /* -- View 1 -- */
+        background-position: 0% 0%;
+        background-size: 300%;
+    }
+    
+    20% {
+        background-position: 15% 4%;
+        background-size: 300%;
+    }
+    
+    20.0001% { /* -- View 2 -- */
+        background-position: 80% 10%;
+        background-size: 300%;
+    }
+      
+    40% {
+        background-position: 72% 14%;
+        background-size: 300%;
+    }
+
+    40.0001% { /* -- View 3 -- */
+      background-position: 36% 42%;
+      background-size: 200%;
+    }
+    
+    60% {
+      background-position: 30% 35%;
+      background-size: 200%;
+    }
+    
+    60.0001% { /* -- View 4 -- */
+      background-position: 60% 85%;
+      background-size: 500%;
+    }
+    
+    80% {
+      background-position: 49% 81%;
+      background-size: 500%;
+    }
+    
+    80.0001% { /* -- View 5 -- */
+      background-position: 80% 42%;
+      background-size: 300%;
+    }
+    
+    100% {
+      background-position: 84% 33%;
+      background-size: 300%;
+    }
+  }
+  
+  @keyframes pan-image3 {  
     0% {
       background-position: 36% 42%;
       background-size: 200%;
@@ -163,7 +268,7 @@ body {
       background-size: 300%;
     }
   }
-  
+
   .screen > .screen-image {
     height: 100%;
     width: 100%;
@@ -175,23 +280,21 @@ body {
     background-position: 0% 0%;
     filter: sepia(100%) hue-rotate(160deg);
     opacity: 0.6;
-    animation: pan-image 15s linear infinite;
   }
 
   .img1 {
     background-image: url("https://i.imgur.com/V1q2eIC.jpeg");
+    animation: pan-image1 25s linear infinite;
   }
 
   .img2 {
     background-image: url("https://i.imgur.com/kEx9EhD.png");
+    animation: pan-image2 22s linear infinite;
   }
 
   .img3 {
     background-image: url("https://i.imgur.com/OBy1ekN.jpeg");
-  }
-
-  .img4 {
-    background-image: url("https://i.imgur.com/UmZUS1k.png");
+    animation: pan-image3 27s linear infinite;
   }
   
   .screen > .screen-content {
