@@ -4,6 +4,19 @@ import Crypto from "crypto";
 const uri = process.env.URI || process.env.MONGO_URL;
 const client = new MongoClient(String(uri))
 
+interface session {
+  id: string;
+  created: number;
+  ip: string;
+}
+
+interface sessionDetails {
+  id: string;
+  created: number;
+  lastUsed: number;
+  ip: string;
+}
+
 async function listDatabases(client: any) {
     const databasesList = await client.db().admin().listDatabases();
     console.log("Databases:");
@@ -36,4 +49,17 @@ export async function makeKey(email: string): Promise<string> {
   } finally {
     return key;
   }
+}
+
+export async function createSession(ip: string): Promise<session>{
+  let session = {id : "", created: 0, ip: ip}
+  session.id = Crypto.randomBytes(64).toString('hex').slice(0, 64);
+  session.created = Date.now();
+  await client.db(process.env.ENV).collection(`sessions`).insertOne(session);
+  return session;
+}
+
+export async function getSession(id: string): Promise<sessionDetails> {
+  // TODO: Check if session is valid
+  return {id: "", created: 0, lastUsed: 0, ip: ""};
 }
