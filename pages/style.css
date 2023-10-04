@@ -7,16 +7,32 @@
   box-sizing: border-box;
 }
 
+
+
 body {
     display: grid;
     place-items: center;
-    height: 90vh;
-    background-color: black;
+    height: 100vh;
     margin: 0rem;
     overflow: hidden;
     grid-template-rows: 35vh 50vh;
     padding-top: 10vh;
-  }
+    background: linear-gradient(-45deg, #451367, #000000, #000000, #451367);
+	  background-size: 400% 400%;
+	  animation: gradient 15s ease-in-out infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
   
   h1 {
@@ -24,7 +40,7 @@ body {
     font-size: clamp(3rem, 10vw, 10rem);
     color: white;
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
-    text-shadow: 0px 0px 0.5rem rgb(var(--primary-rgb));
+    text-shadow: 0px 0px 0.75rem rgb(var(--primary-rgb));
     margin: 0;
     margin-bottom: clamp(2rem, 2vw, 3rem);
   }
