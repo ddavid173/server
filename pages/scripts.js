@@ -48,3 +48,7 @@ function setCookie(cname, cvalue, exdays = 7) {
     let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=None;Secure";
 }
+
+function deleteCookie(cname) {
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;SameSite=None;Secure";
+}

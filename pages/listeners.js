@@ -1,14 +1,11 @@
 document.querySelector("h1").onmouseover = decodeText
 document.querySelector("h1").onload = decodeText()
 
-if (!getCookie("session_id")) {
+function createCookie() {
     fetch(
         window.location.origin + "/create-session",
         {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            method: "POST",
         }).then((response) => {
             return response.json()
         }).then((data) => {
@@ -18,8 +15,30 @@ if (!getCookie("session_id")) {
         })
 }
 
+if (getCookie("session_id")) {
+    fetch(
+        window.location.origin + "/session",
+        {
+            method: "GET",
+            headers: {
+                "id": getCookie("session_id")
+            }
+        }).then((response) => {
+            if (response.status === 409) {
+                deleteCookie("session_id")
+                createCookie()
+            } else if (response.status !== 200) {
+                throw response.status
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+
+} else {
+    createCookie()
+}
+
 const animatedScreens = document.querySelectorAll(".screen-image")
-console.log(animatedScreens)
 const animationAverage = 25
 const keyframes = ['pan-image1', 'pan-image2', 'pan-image3']
 let imgs = ['https://i.imgur.com/V1q2eIC.jpeg', 'https://i.imgur.com/kEx9EhD.png', 'https://i.imgur.com/OBy1ekN.jpeg']

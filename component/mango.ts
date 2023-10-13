@@ -52,14 +52,21 @@ export async function makeKey(email: string): Promise<string> {
 }
 
 export async function createSession(ip: string): Promise<session>{
-  let session = {id : "", created: 0, ip: ip}
+  let session = {id : "", created: 0, lastUsed: 0, ip: ip}
   session.id = Crypto.randomBytes(64).toString('hex').slice(0, 64);
   session.created = Date.now();
+  session.lastUsed = Date.now();
   await client.db(process.env.ENV).collection(`sessions`).insertOne(session);
   return session;
 }
 
-export async function getSession(id: string): Promise<sessionDetails> {
-  // TODO: Check if session is valid
-  return {id: "", created: 0, lastUsed: 0, ip: ""};
+export async function getSession(id: string): Promise<session | null> {
+  return await client.db(process.env.ENV).collection(`sessions`).findOne({id: id}).then((doc) => {
+    if (doc === null) {
+      return null;
+    } else { 
+      client.db(process.env.ENV).collection(`sessions`).updateOne({id: id}, {$set: {'lastUsed': Date.now()}})
+      return Object(doc)
+    }
+  })
 }
