@@ -5,7 +5,10 @@ jobs:
   # Controls when the action will run.
   on:
     pull_request:
-      branches: [ main ]
+      types:
+        - opened
+      branches:
+        - 'main/**'
 
   build-docker-image:
     runs-on: ubuntu-latest
