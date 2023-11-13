@@ -13,8 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: list files
+        run: ls -la
+
       - name: Build Docker image
-        run: ls
         run: docker build -t my-docker-image -f Dockerfile .
 
       - name: Run Docker image
