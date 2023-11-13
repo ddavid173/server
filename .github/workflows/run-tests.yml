@@ -13,6 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Checkout test repository code
+        uses: actions/checkout@v2
+        with:
+          repository: ddavid173/WebDriverIO
+          ref: main
+
       - name: list files
         run: ls -la
 
