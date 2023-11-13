@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker image
+        run: ls
         run: docker build -t my-docker-image -f Dockerfile .
 
       - name: Run Docker image
