@@ -58,3 +58,10 @@ const openPopup = () => {
 const closePopup = () => {
     popup.close()
 }
+
+const downArrow = document.querySelector("button.downToContent")
+
+downArrow.addEventListener("click", () => {
+    console.log("clicked")
+    downArrow.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" })
+})
