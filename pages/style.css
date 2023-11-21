@@ -5,25 +5,48 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Mono', monospace;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 
 html {
   background-color: black;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 body {
+  min-height: 110vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+article#banner {
     display: grid;
     place-items: center;
-    height: 100vh;
     margin: 0rem;
-    overflow: hidden;
-    grid-template-rows: 35vh 50vh;
-    padding-top: 10vh;
+    height: max(90vh, 700px);
+    width: 100%;
+    overflow-x: hidden;
+    grid-template-rows: 35% 65%;
     background: linear-gradient(-45deg, #451367, #000000, #000000, #451367);
 	  background-size: 400% 400%;
 	  animation: gradient 15s ease-in-out infinite;
 }
+
 
 @keyframes gradient {
 	0% {
@@ -38,14 +61,43 @@ body {
 }
 
   
-  h1 {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(3rem, 10vw, 10rem);
-    color: white;
-    border-radius: clamp(0.4rem, 0.75vw, 1rem);
-    text-shadow: 0px 0px 0.75rem rgb(var(--primary-rgb));
-    margin: 0;
-    margin-bottom: clamp(2rem, 2vw, 3rem);
+h1, .downToContent {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(3rem, 10vw, 10rem);
+  color: white;
+  border-radius: clamp(0.4rem, 0.75vw, 1rem);
+  text-shadow: 0px 0px 0.75rem rgb(var(--primary-rgb));
+  margin: 0;
+  margin-bottom: clamp(2rem, 2vw, 3rem);
+}
+
+.downToContent {
+  color: white;
+  width: fit-content;
+  aspect-ratio: 1/1;
+  background-color: black;
+  border: none;
+  font-size: 50px;
+  margin: 0;
+  animation: arrow 5s infinite linear;
+}
+
+  @keyframes arrow {
+    0% {
+      font-size: 50px;
+      text-shadow: 0px 0px 0.75rem rgb(var(--primary-rgb));
+    }
+    
+    50% {
+      font-size: 55px;
+      text-shadow: 0px 0px 3rem rgb(var(--primary-rgb));
+      transform: translateY(10px); 
+    }
+    
+     100% {
+      font-size: 50px;
+      text-shadow: 0px 0px 0.75rem rgb(var(--primary-rgb));
+    }
   }
 
   h2 {
@@ -60,7 +112,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     width: 100vw;
-    height: 60vh;
+    height: 100%;
     padding: 2.5vh 5vw;
     max-width: 1100px;
   }
@@ -391,6 +443,7 @@ body {
 
   .popup {
     position: relative;
+    display: none;
     visibility: collapse;
     z-index: 1000;
     position: absolute;
