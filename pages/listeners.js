@@ -43,7 +43,7 @@ const animatedScreens = document.querySelectorAll(".screen-image")
 const animationAverage = 25
 const keyframes = ['pan-image1', 'pan-image2', 'pan-image3']
 let imgs = ['https://i.imgur.com/V1q2eIC.jpeg', 'https://i.imgur.com/kEx9EhD.png', 'https://i.imgur.com/OBy1ekN.jpeg']
-console.log(isMobile)
+
 animatedScreens.forEach((screen) => {
     if (!isMobile) {
         screen.style.animationDuration = Math.floor((Math.random() - 0.5) * 10) + animationAverage + "s"
@@ -65,6 +65,11 @@ const closePopup = () => {
 const downArrow = document.querySelector("button.downToContent")
 
 downArrow.addEventListener("click", () => {
-    console.log("clicked")
     downArrow.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" })
 })
+
+const commingSoonHint = document.querySelector("#comingSoonHint")
+
+if (!window.location.hostname.includes('production')) {
+    commingSoonHint.parentNode.removeChild(commingSoonHint)
+}
