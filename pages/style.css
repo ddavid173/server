@@ -38,10 +38,11 @@ article#banner {
     display: grid;
     place-items: center;
     margin: 0rem;
-    height: max(90vh, 700px);
+    height: max(100vh, 700px);
     width: 100%;
     overflow-x: hidden;
-    grid-template-rows: 35% 65%;
+    background: none;
+    grid-template-rows: 30% 60% 5%;
     background: linear-gradient(-45deg, #451367, #000000, #000000, #451367);
 	  background-size: 400% 400%;
 	  animation: gradient 15s ease-in-out infinite;
@@ -398,7 +399,6 @@ h1, .downToContent {
     background-position: 0% 0%;
     filter: sepia(100%) hue-rotate(160deg);
     opacity: 0.6;
-    animation: pan-image1 25s linear infinite;
   }
   
   .screen > .screen-content {
@@ -449,14 +449,17 @@ h1, .downToContent {
     }
     
     @media screen and (orientation: portrait) {
-        .screen-title {
-            font-size: clamp(2rem, 3vw, 5rem);
-        }
-    
-        .remove-atributes {
-            font-size: clamp(2rem, 3vw, 5rem);
-        }
-    }
+      article#banner {
+        grid-template-rows: 22.5% 60% 5%;
+      }
+      .screen-title {
+          font-size: clamp(2rem, 3vw, 5rem);
+      }
+  
+      .remove-atributes {
+          font-size: clamp(2rem, 3vw, 5rem);
+      }
+  }
 
   .popup {
     position: relative;
