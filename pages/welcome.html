@@ -1,112 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Portfolio</title>
-        <link href="./style.css" rel="stylesheet" />
-        <link href="./styleVariations.css" rel="stylesheet" />
-        <link href="./banner.css" rel="stylesheet" />
-        <link href="./next.css" rel="stylesheet" />
-        <script src="./scripts.js"></script>
-    </head>
-    <body>
-        <article id="banner">
-            <h1 data-value="Welcome!">Welcome!</h1>
-            <section>
-                <div class="screen">  
-                    <div class="screen-image"></div> 
-                    <div class="screen-overlay"></div>  
-                    <div class="screen-content">
-                        <a href="https://github.com/ddavid173/server" 
-                            class="screen-title" 
-                            target="_blank" 
-                            rel="noreferrer noopener">
-                            See how this page was made!
-                        </a>
-                    </div>
-                </div>
-                <div class="screen">  
-                    <div class="screen-image"></div> 
-                    <div class="screen-overlay"></div>
-                    <div class="screen-content">
-                        <a href="https://www.delgadolandinvestmentsllc.com/" 
-                            class="screen-title" 
-                            target="_blank" 
-                            rel="noreferrer noopener">
-                            See a live site
-                        </a>
-                    </div>
-                </div>
-                <div class="screen">  
-                    <div class="screen-image"></div> 
-                    <div class="screen-overlay"></div>  
-                    <div class="screen-content">
-                        <a href="https://www.linkedin.com/in/david-delgado-834506195/"
-                            class="screen-title"
-                            target="_blank"
-                            rel="noreferrer noopener">
-                            See what I am up to now
-                        </a>
-                    </div>
-                </div>
-                <div class="screen">  
-                    <div class="screen-image"></div> 
-                    <div class="screen-overlay"></div>  
-                    <div class="screen-content">
-                        <a href="https://github.com/ddavid173/server" 
-                            class="screen-title" 
-                            target="_blank" 
-                            rel="noreferrer noopener">
-                            My Github
-                        </a>
-                    </div>
-                </div>
-                <div class="screen">  
-                    <div class="screen-image"></div> 
-                    <div class="screen-overlay"></div>  
-                    <div class="screen-content">
-                        <button
-                            onclick="openPopup()"
-                            class="screen-title remove-atributes" 
-                            target="_blank" 
-                            rel="noreferrer noopener">
-                            Reach out to me
-                        </button>
-                    </div>
-                </div>
-            </section>
-            <button class="downToContent">
-                &#11167;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <link href="./styles/style.css" rel="stylesheet" />
+    <link href="./styles/styleVariations.css" rel="stylesheet" />
+    <link href="./styles/banner.css" rel="stylesheet" />
+    <link href="./styles/next.css" rel="stylesheet" />
+    <link href="./styles/popup.css" rel="stylesheet" />
+    <script src="./scripts.js"></script>
+  </head>
+  <body>
+    <article id="banner">
+      <h1 data-value="Welcome!">Welcome!</h1>
+      <section>
+        <div class="screen">
+          <div class="screen-image"></div>
+          <div class="screen-overlay"></div>
+          <div class="screen-content">
+            <a
+              href="https://github.com/ddavid173/server"
+              class="screen-title"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              See how this page was made!
+            </a>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen-image"></div>
+          <div class="screen-overlay"></div>
+          <div class="screen-content">
+            <a
+              href="https://www.delgadolandinvestmentsllc.com/"
+              class="screen-title"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              See a live site
+            </a>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen-image"></div>
+          <div class="screen-overlay"></div>
+          <div class="screen-content">
+            <a
+              href="https://www.linkedin.com/in/david-delgado-834506195/"
+              class="screen-title"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              See what I am up to now
+            </a>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen-image"></div>
+          <div class="screen-overlay"></div>
+          <div class="screen-content">
+            <a
+              href="https://github.com/ddavid173/server"
+              class="screen-title"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              My Github
+            </a>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen-image"></div>
+          <div class="screen-overlay"></div>
+          <div class="screen-content">
+            <button
+              onclick="openPopup()"
+              class="screen-title remove-atributes"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Reach out to me
             </button>
-        </article>
-        <h1 id="comingSoon">More Comming Soon!</h1>
-        <a id="comingSoonHint" href="https://server-develop-5e63.up.railway.app/">See beta site here</a>
-    </body>
-    <dialog class="screen popup">
-        <form method="dialog" class="closePopup">
-          <button type="submit" class="closeBtn" onclick="closePopup()">x</button>
-        </form>
-        <section class="popupContent">
-            <div class="popupContextBox">
-                <div class="popupContentTitle">Email:</div>
-                <div class="popupContentText">davidadelgado08@gmail.com</div>
-            </div>
-            <div class="popupContextBox">
-                <div class="popupContentTitle">Phone:</div>
-                <div class="popupContentText">(512) 753-9633</div>
-            </div>
-            <div class="popupContextBox popupContextBoxHover">
-                <div class="popupContentTitle">LinkedIn:</div>
-                <div class="popupContentText">
-                    <a href="https://www.linkedin.com/in/david-delgado-834506195/"
-                        class="screen-title popupContextLink"
-                        target="_blank"
-                        rel="noreferrer noopener">
-                        david-delgado-834506195
-                    </a>
-                </div>
-            </div>
-        </section>
-    </dialog>
-    <script src="./listeners.js"></script>
+          </div>
+        </div>
+      </section>
+      <button class="downToContent">&#11167;</button>
+    </article>
+    <h1 id="comingSoon">More Comming Soon!</h1>
+    <a id="comingSoonHint" href="https://server-develop-5e63.up.railway.app/"
+      >See beta site here</a
+    >
+  </body>
+  <dialog class="screen popup">
+    <form method="dialog" class="closePopup">
+      <button type="submit" class="closeBtn" onclick="closePopup()">x</button>
+    </form>
+    <section class="popupContent">
+      <div class="popupContextBox">
+        <div class="popupContentTitle">Email:</div>
+        <div class="popupContentText">davidadelgado08@gmail.com</div>
+      </div>
+      <div class="popupContextBox">
+        <div class="popupContentTitle">Phone:</div>
+        <div class="popupContentText">(512) 753-9633</div>
+      </div>
+      <div class="popupContextBox popupContextBoxHover">
+        <div class="popupContentTitle">LinkedIn:</div>
+        <div class="popupContentText">
+          <a
+            href="https://www.linkedin.com/in/david-delgado-834506195/"
+            class="screen-title popupContextLink"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            david-delgado-834506195
+          </a>
+        </div>
+      </div>
+    </section>
+  </dialog>
+  <script src="./listeners.js"></script>
 </html>
